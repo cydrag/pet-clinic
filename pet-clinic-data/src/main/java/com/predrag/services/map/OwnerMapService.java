@@ -1,11 +1,11 @@
 package com.predrag.services.map;
 
 import com.predrag.model.Owner;
-import com.predrag.services.CrudService;
+import com.predrag.services.OwnerService;
 
 import java.util.Set;
 
-public class OwnerMapService extends AbstractMapService<Owner, Long> implements CrudService<Owner, Long> {
+public class OwnerMapService extends AbstractMapService<Owner, Long> implements OwnerService {
 
     @Override
     public Set<Owner> findAll() {
@@ -30,5 +30,13 @@ public class OwnerMapService extends AbstractMapService<Owner, Long> implements 
     @Override
     public void deleteById(Long id) {
         super.deleteById(id);
+    }
+
+    @Override
+    public Owner findByLastName(String lastName) {
+        return findAll().stream()
+                .filter((Owner ownr) -> ownr.getLastName().equals(lastName))
+                .findFirst()
+                .orElse(null);
     }
 }

@@ -1,11 +1,11 @@
 package com.predrag.services.map;
 
 import com.predrag.model.Pet;
-import com.predrag.services.CrudService;
+import com.predrag.services.PetService;
 
 import java.util.Set;
 
-public class PetMapService extends AbstractMapService<Pet, Long> implements CrudService<Pet, Long> {
+public class PetMapService extends AbstractMapService<Pet, Long> implements PetService {
 
     @Override
     public Set<Pet> findAll() {
